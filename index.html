@@ -1,139 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>Which Character Are You?</title>
 <style>
-body { font-family: Arial, sans-serif; }
-.layout { display: flex; gap: 20px; }
-#quiz-container { flex: 2; }
-#scoreboard { flex: 1; background: #f0f0f0; padding: 10px; border-radius: 8px; }
-#result, #certificate { margin-top: 20px; padding: 15px; border: 2px solid #ccc; border-radius: 10px; }
-#certificate { display: none; text-align: center; font-size: 1.2em; }
-#certificate button { margin-top: 10px; padding: 8px 12px; }
-.question-step { display: none; }
-body {
-  font-family: 'Arial', sans-serif;
-  background: #f9f9f9;
-  margin: 0;
-  padding: 0;
-  color: #333;
-}
- 
-.layout {
-  display: flex;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 40px auto;
-}
- 
-#quiz-container {
-  flex: 2;
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-}
- 
-h1 {
-  text-align: center;
-  color: #444;
-}
- 
-.question-step p {
-  font-weight: bold;
-  font-size: 1.1em;
-}
- 
-label {
-  display: block;
-  margin: 8px 0;
-  cursor: pointer;
-}
- 
-input[type="radio"] {
-  margin-right: 10px;
-}
- 
-button.next-btn,
-#submit-btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 16px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
-}
- 
-button.next-btn:hover,
-#submit-btn:hover {
-  background-color: #45a049;
-}
- 
-#scoreboard {
+  body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: #691010;
+    color: black;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s;
+  }
+
+  .layout {
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+  }
+
+  #quiz-container {
+    flex: 2;
+    background: #f3cbe0;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  #scoreboard {
   flex: 1;
-  background: #fff;
+  background: #f3cbe0;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.05);
   height: fit-content;
 }
- 
-#scoreboard h2 {
-  margin-top: 0;
-  color: #444;
-  text-align: center;
+
+  h1 {
+    text-align: center;
+    color: #3b0808;
+  }
+
+  .question-step {
+    display: none;
+  }
+
+  .question-step.active {
+    display: block;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+
+  label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  button.next-btn,
+  #submit-btn {
+    background-color: #691010;
+    color: white;
+    padding: 10px 16px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+  }
+
+  button.next-btn:hover,
+  #submit-btn:hover {
+    background-color: #3b0808;
+  }
+
+  #certificate {
+    display: none;
+    margin-top: 20px;
+    padding: 25px;
+    border: 2px solid #3b0808;
+    border-radius: 12px;
+    background: #e8f5e9;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  #certificate h2 {
+    color: #691010;
+  }
+
+  /* Disco flash animation */
+  .disco-flash {
+    animation: flashColors 1s infinite;
+  }
+
+  @keyframes flashColors {
+    0% { background-color: #ff0000; }
+    25% { background-color: #00ff00; }
+    50% { background-color: #0000ff; }
+    75% { background-color: #ffff00; }
+    100% { background-color: #ff00ff; }
+  }
+
+  /* Glitter overlay */
+  #glitter {
+    pointer-events: none;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    z-index: 9999;
+    display: block; /* Changed from none to block to show glitter overlay */
+    background-image: url('https://as2.ftcdn.net/v2/jpg/14/64/68/71/1000_F_1464687135_jzjpYoP3XQb9SZTxbu4txqIo5XrTQ6uq.jpg');
+    background-repeat: repeat;
+    opacity: 0.8;
+    animation: glitterMove 5s linear infinite;
 }
- 
-#scoreboard ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
- 
-#scoreboard li {
-  padding: 6px 0;
-  border-bottom: 1px solid #eee;
-}
- 
-#certificate {
-  display: none;
-  margin-top: 20px;
-  padding: 25px;
-  border: 2px solid #4caf50;
-  border-radius: 12px;
-  background: #e8f5e9;
-  text-align: center;
-  font-size: 1.1em;
-}
- 
-#certificate h2 {
-  color: #2e7d32;
-}
- 
-#certificate h3 {
-  color: #1b5e20;
-  margin: 10px 0;
-}
- 
-#certificate button {
-  background-color: #2e7d32;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 15px;
-  font-size: 1em;
-}
- 
-#certificate button:hover {
-  background-color: #1b5e20;
-}
- 
+
+  @keyframes glitterMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+  }
 </style>
 </head>
 <body>
@@ -307,14 +304,14 @@ button.next-btn:hover,
  
 <script>
 // Characters and scoring
-const characters = ["Todd","Barry","Hendricks","Milagro","Henri_Poisson","Melanie","Host","Charles","Sunrise","Minnie","Luka","Jeremiah","Gabrielle","Andrea","Natalia","Shani","Bailey","Eleanor","Jessica","Earl"];
+const characters = ["Todd","Barry","Hendricks","Milagro","Henri","Melanie","Host","Charles","Sunrise","Minnie","Luka","Jeremiah","Gabrielle","Andrea","Natalia","Shani","Bailey","Eleanor","Jessica","Earl"];
 const characterScores = {};
 characters.forEach(c => characterScores[c] = 0);
 const answersByQuestion = {};
  
 // Descriptions
 const descriptions = {
-  Henri_Poisson: "Insightful and observant, you’re the mind everyone turns to.",
+  Henri: "Insightful and observant, you’re the mind everyone turns to.",
   Todd: "You play your cards quietly — not everyone knows your motives.",
   Luka: "Creative, expressive, and unafraid to be yourself.",
   Barry: "You love control — and the spotlight.",
@@ -338,21 +335,21 @@ const descriptions = {
  
 // full answer mapping
 const answerMapping = {
-  q1: { A:["Todd","Barry","Hendricks","Milagro"], B:["Henri_Poisson","Melanie"], C:["Sunrise","Minnie","Luka","Jeremiah"], D:["Gabrielle","Andrea","Natalia","Shani","Bailey"] },
-  q2: { A:["Melanie","Hendricks","Barry"], B:["Henri_Poisson","Luka","Eleanor"], C:["Sunrise","Andrea","Natalia","Jeremiah"], D:["Minnie","Todd","Bailey"] },
-  q3: { A:["Barry","Hendricks","Melanie","Natalia"], B:["Henri_Poisson","Todd","Milagro","Eleanor"], C:["Andrea","Jeremiah"], D:["Sunrise","Minnie","Luka","Bailey","Gabrielle"] },
-  q4: { A:["Barry","Hendricks","Todd","Melanie"], B:["Gabrielle","Natalia","Bailey","Shani"], C:["Sunrise","Luka","Eleanor"], D:["Henri_Poisson","Milagro","Andrea","Jeremiah"] },
-  q5: { A:["Todd","Melanie","Hendricks","Andrea"], B:["Sunrise","Luka","Eleanor"], C:["Barry","Natalia","Gabrielle","Shani"], D:["Henri_Poisson","Jeremiah","Milagro","Bailey"] },
-  q6: { A:["Todd","Barry","Hendricks","Shani"], B:["Henri_Poisson","Eleanor"], C:["Sunrise","Andrea","Bailey","Jeremiah"], D:["Gabrielle","Melanie","Milagro","Natalia","Luka","Minnie"] },
-  q7: { A:["Todd","Hendricks","Melanie","Milagro"], B:["Eleanor","Sunrise","Luka"], C:["Barry","Natalia","Shani","Gabrielle"], D:["Minnie","Andrea","Bailey","Jeremiah","Henri_Poisson"] },
-  q8: { A:["Henri_Poisson","Hendricks","Todd","Melanie"], B:["Milagro","Bailey","Andrea"], C:["Sunrise","Luka","Eleanor"], D:["Barry","Gabrielle","Natalia","Shani","Jeremiah"] },
-  q9: { A:["Henri_Poisson","Hendricks","Melanie","Milagro"], B:["Gabrielle","Natalia","Shani","Andrea","Jeremiah"], C:["Sunrise","Minnie","Luka","Eleanor"], D:["Barry","Todd","Bailey"] },
-  q10: { A:["Barry","Hendricks","Melanie","Gabrielle","Bailey"], B:["Minnie","Sunrise","Luka","Jeremiah","Natalia"], C:["Todd","Eleanor","Andrea"], D:["Henri_Poisson","Milagro","Shani"] },
-  q11: { A:["Barry","Gabrielle","Bailey","Shani","Natalia"], B:["Eleanor","Jeremiah","Luka"], C:["Hendricks","Melanie","Todd","Andrea"], D:["Henri_Poisson","Milagro","Sunrise","Minnie"] },
-  q12: { A:["Todd","Barry","Hendricks","Melanie"], B:["Gabrielle","Natalia","Luka","Shani","Bailey"], C:["Sunrise","Andrea","Jeremiah"], D:["Henri_Poisson","Milagro","Minnie"] },
-  q13: { A:["Barry","Hendricks","Melanie","Bailey","Gabrielle"], B:["Todd","Andrea","Minnie","Milagro","Jeremiah"], C:["Eleanor","Luka","Sunrise"], D:["Natalia","Shani","Henri_Poisson"] },
-  q14: { A:["Todd"], B:["Barry","Natalia","Shani","Gabrielle","Bailey"], C:["Sunrise","Luka","Minnie","Jeremiah","Andrea"], D:["Henri_Poisson","Hendricks","Melanie","Milagro"] },
-  q15: { A:["Sunrise","Jeremiah"], B:["Barry","Hendricks","Melanie","Todd"], C:["Gabrielle","Natalia","Bailey","Luka","Minnie"], D:["Henri_Poisson","Milagro","Andrea","Shani"] }
+  q1: { A:["Todd","Barry","Hendricks","Milagro"], B:["Henri","Melanie"], C:["Sunrise","Minnie","Luka","Jeremiah"], D:["Gabrielle","Andrea","Natalia","Shani","Bailey"] },
+  q2: { A:["Melanie","Hendricks","Barry"], B:["Henri","Luka","Eleanor"], C:["Sunrise","Andrea","Natalia","Jeremiah"], D:["Minnie","Todd","Bailey"] },
+  q3: { A:["Barry","Hendricks","Melanie","Natalia"], B:["Henri","Todd","Milagro","Eleanor"], C:["Andrea","Jeremiah"], D:["Sunrise","Minnie","Luka","Bailey","Gabrielle"] },
+  q4: { A:["Barry","Hendricks","Todd","Melanie"], B:["Gabrielle","Natalia","Bailey","Shani"], C:["Sunrise","Luka","Eleanor"], D:["Henri","Milagro","Andrea","Jeremiah"] },
+  q5: { A:["Todd","Melanie","Hendricks","Andrea"], B:["Sunrise","Luka","Eleanor"], C:["Barry","Natalia","Gabrielle","Shani"], D:["Henri","Jeremiah","Milagro","Bailey"] },
+  q6: { A:["Todd","Barry","Hendricks","Shani"], B:["Henri","Eleanor"], C:["Sunrise","Andrea","Bailey","Jeremiah"], D:["Gabrielle","Melanie","Milagro","Natalia","Luka","Minnie"] },
+  q7: { A:["Todd","Hendricks","Melanie","Milagro"], B:["Eleanor","Sunrise","Luka"], C:["Barry","Natalia","Shani","Gabrielle"], D:["Minnie","Andrea","Bailey","Jeremiah","Henri"] },
+  q8: { A:["Henri","Hendricks","Todd","Melanie"], B:["Milagro","Bailey","Andrea"], C:["Sunrise","Luka","Eleanor"], D:["Barry","Gabrielle","Natalia","Shani","Jeremiah"] },
+  q9: { A:["Henri","Hendricks","Melanie","Milagro"], B:["Gabrielle","Natalia","Shani","Andrea","Jeremiah"], C:["Sunrise","Minnie","Luka","Eleanor"], D:["Barry","Todd","Bailey"] },
+  q10: { A:["Barry","Hendricks","Melanie","Gabrielle","Bailey"], B:["Minnie","Sunrise","Luka","Jeremiah","Natalia"], C:["Todd","Eleanor","Andrea"], D:["Henri","Milagro","Shani"] },
+  q11: { A:["Barry","Gabrielle","Bailey","Shani","Natalia"], B:["Eleanor","Jeremiah","Luka"], C:["Hendricks","Melanie","Todd","Andrea"], D:["Henri","Milagro","Sunrise","Minnie"] },
+  q12: { A:["Todd","Barry","Hendricks","Melanie"], B:["Gabrielle","Natalia","Luka","Shani","Bailey"], C:["Sunrise","Andrea","Jeremiah"], D:["Henri","Milagro","Minnie"] },
+  q13: { A:["Barry","Hendricks","Melanie","Bailey","Gabrielle"], B:["Todd","Andrea","Minnie","Milagro","Jeremiah"], C:["Eleanor","Luka","Sunrise"], D:["Natalia","Shani","Henri"] },
+  q14: { A:["Todd"], B:["Barry","Natalia","Shani","Gabrielle","Bailey"], C:["Sunrise","Luka","Minnie","Jeremiah","Andrea"], D:["Henri","Hendricks","Melanie","Milagro"] },
+  q15: { A:["Sunrise","Jeremiah"], B:["Barry","Hendricks","Melanie","Todd"], C:["Gabrielle","Natalia","Bailey","Luka","Minnie"], D:["Henri","Milagro","Andrea","Shani"] }
 };
  
  
@@ -429,28 +426,41 @@ function submitQuiz(){
     <p>Top score: ${top3[0][1]}</p>
     ${top3.map(([name])=>`<p>${descriptions[name]}</p>`).join("")}
   `;
- 
+
+  // Show download button
   const downloadBtn = document.getElementById("download-btn");
-downloadBtn.style.display = "inline-block";
-downloadBtn.onclick = () => {
-  html2canvas(certificateDiv, { scale: 2 }).then(canvas => {
-    const imgData = canvas.toDataURL('image/png');
- 
-    // Create a PDF with the exact canvas size
-    const pdf = new jspdf.jsPDF({
-      orientation: 'landscape',
-      unit: 'px',
-      format: [canvas.width, canvas.height]
+  downloadBtn.style.display = "inline-block";
+  downloadBtn.onclick = () => {
+    html2canvas(certificateDiv, { scale: 2 }).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+
+      // Create a PDF with the exact canvas size
+      const pdf = new jspdf.jsPDF({
+        orientation: 'landscape',
+        unit: 'px',
+        format: [canvas.width, canvas.height]
+      });
+
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+      pdf.save('Character_Certificate.pdf');
     });
- 
-    pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-    pdf.save('Character_Certificate.pdf');
-  });
-};
- 
- 
+  };
+
+  // Hide quiz form
   document.getElementById("quiz-form").style.display = "none";
+
+  // ==== DISCO PARTY MODE ACTIVATION START ====
+  document.body.classList.add('disco-flash');
+  document.getElementById('glitter').style.display = 'block';
+
+  const discoMusic = document.getElementById('discoMusic');
+  discoMusic.play().catch(e => console.log('Music playback prevented:', e));
+  // ==== DISCO PARTY MODE ACTIVATION END ====
+
+  // Show restart button
+  document.getElementById('restart-btn').style.display = 'inline-block';
 }
+
 </script>
  
 </body>
