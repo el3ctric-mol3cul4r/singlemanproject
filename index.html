@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Which Character Are You?</title>
+<style>
+body { font-family: Arial, sans-serif; }
+.layout { display: flex; gap: 20px; }
+#quiz-container { flex: 2; }
+#scoreboard { flex: 1; background: #f0f0f0; padding: 10px; border-radius: 8px; }
+#result, #certificate { margin-top: 20px; padding: 15px; border: 2px solid #ccc; border-radius: 10px; }
+#certificate { display: none; text-align: center; font-size: 1.2em; }
+#certificate button { margin-top: 10px; padding: 8px 12px; }
+.question-step { display: none; }
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+ 
+.layout {
+  display: flex;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+ 
+#quiz-container {
+  flex: 2;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+ 
+h1 {
+  text-align: center;
+  color: #444;
+}
+ 
+.question-step p {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+ 
+label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+}
+ 
+input[type="radio"] {
+  margin-right: 10px;
+}
+ 
+button.next-btn,
+#submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+ 
+button.next-btn:hover,
+#submit-btn:hover {
+  background-color: #45a049;
+}
+ 
+#scoreboard {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+ 
+#scoreboard h2 {
+  margin-top: 0;
+  color: #444;
+  text-align: center;
+}
+ 
+#scoreboard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+#scoreboard li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+ 
+#certificate {
+  display: none;
+  margin-top: 20px;
+  padding: 25px;
+  border: 2px solid #4caf50;
+  border-radius: 12px;
+  background: #e8f5e9;
+  text-align: center;
+  font-size: 1.1em;
+}
+ 
+#certificate h2 {
+  color: #2e7d32;
+}
+ 
+#certificate h3 {
+  color: #1b5e20;
+  margin: 10px 0;
+}
+ 
+#certificate button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1em;
+}
+ 
+#certificate button:hover {
+  background-color: #1b5e20;
+}
+ 
+</style>
+</head>
+<body>
+ 
+<div class="layout">
+  <div id="quiz-container">
+    <h1>Which Character Are You?</h1>
+   
+    <div id="quiz-form">
+      <!-- Question steps go here (all 15 questions, same as your previous HTML) -->
+      <div class="question-step" data-step="0" style="display:block;">
+        <p>1. What motivates you most in life?</p>
+        <label><input type="radio" name="q1" value="A"> Solving complex problems</label><br>
+        <label><input type="radio" name="q1" value="B"> Being in control of everything</label><br>
+        <label><input type="radio" name="q1" value="C"> Finally being noticed</label><br>
+        <label><input type="radio" name="q1" value="D"> Becoming famous at all costs</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+      <!-- Question 2 -->
+      <div class="question-step" data-step="1">
+        <p>2. What’s your ideal outfit?</p>
+        <label><input type="radio" name="q2" value="A"> Something sharp and powerful</label><br>
+        <label><input type="radio" name="q2" value="B"> Stylish and artistic</label><br>
+        <label><input type="radio" name="q2" value="C"> Casual and effortless</label><br>
+        <label><input type="radio" name="q2" value="D"> Relaxed and comfortable</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 3 -->
+      <div class="question-step" data-step="2">
+        <p>3. How do you handle conflict?</p>
+        <label><input type="radio" name="q3" value="A"> Directly and assertively</label><br>
+        <label><input type="radio" name="q3" value="B"> Strategically and calmly</label><br>
+        <label><input type="radio" name="q3" value="C"> Avoid it whenever possible</label><br>
+        <label><input type="radio" name="q3" value="D"> With emotion and passion</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 4 -->
+      <div class="question-step" data-step="3">
+        <p>4. What’s your biggest insecurity?</p>
+        <label><input type="radio" name="q4" value="A"> Losing control or power</label><br>
+        <label><input type="radio" name="q4" value="B"> Being forgotten</label><br>
+        <label><input type="radio" name="q4" value="C"> Not being understood</label><br>
+        <label><input type="radio" name="q4" value="D"> Not being good enough</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 5 -->
+      <div class="question-step" data-step="4">
+        <p>5. Pick a job you’d love most:</p>
+        <label><input type="radio" name="q5" value="A"> Leader or strategist</label><br>
+        <label><input type="radio" name="q5" value="B"> Artist or creator</label><br>
+        <label><input type="radio" name="q5" value="C"> Influencer or performer</label><br>
+        <label><input type="radio" name="q5" value="D"> Mentor or teacher</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 6 -->
+      <div class="question-step" data-step="5">
+        <p>6. What’s your approach to love?</p>
+        <label><input type="radio" name="q6" value="A"> Intense and complicated</label><br>
+        <label><input type="radio" name="q6" value="B"> Loyal and steady</label><br>
+        <label><input type="radio" name="q6" value="C"> Gentle and cautious</label><br>
+        <label><input type="radio" name="q6" value="D"> Fun and spontaneous</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 7 -->
+      <div class="question-step" data-step="6">
+        <p>7. How do you deal with failure?</p>
+        <label><input type="radio" name="q7" value="A"> Work harder to fix it</label><br>
+        <label><input type="radio" name="q7" value="B"> Reflect and learn</label><br>
+        <label><input type="radio" name="q7" value="C"> Pretend it didn’t happen</label><br>
+        <label><input type="radio" name="q7" value="D"> Laugh it off</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 8 -->
+      <div class="question-step" data-step="7">
+        <p>8. Choose your morning routine:</p>
+        <label><input type="radio" name="q8" value="A"> Planning your day in detail</label><br>
+        <label><input type="radio" name="q8" value="B"> Practicing your art or passion</label><br>
+        <label><input type="radio" name="q8" value="C"> Taking time to relax</label><br>
+        <label><input type="radio" name="q8" value="D"> Pumping yourself up with music</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 9 -->
+      <div class="question-step" data-step="8">
+        <p>9. Pick your favorite social setting:</p>
+        <label><input type="radio" name="q9" value="A"> Private meeting or small group</label><br>
+        <label><input type="radio" name="q9" value="B"> Big public event</label><br>
+        <label><input type="radio" name="q9" value="C"> Quiet and calm space</label><br>
+        <label><input type="radio" name="q9" value="D"> Party with friends</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 10 -->
+      <div class="question-step" data-step="9">
+        <p>10. What’s your biggest weakness?</p>
+        <label><input type="radio" name="q10" value="A"> Arrogance or pride</label><br>
+        <label><input type="radio" name="q10" value="B"> Overthinking</label><br>
+        <label><input type="radio" name="q10" value="C"> Self-doubt</label><br>
+        <label><input type="radio" name="q10" value="D"> Impulsiveness</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 11 -->
+      <div class="question-step" data-step="10">
+        <p>11. Pick a drink:</p>
+        <label><input type="radio" name="q11" value="A"> Something bold and flashy</label><br>
+        <label><input type="radio" name="q11" value="B"> Something refined and classic</label><br>
+        <label><input type="radio" name="q11" value="C"> Strong coffee or espresso</label><br>
+        <label><input type="radio" name="q11" value="D"> Smooth tea or juice</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 12 -->
+      <div class="question-step" data-step="11">
+        <p>12. What’s your life motto?</p>
+        <label><input type="radio" name="q12" value="A"> Control your destiny</label><br>
+        <label><input type="radio" name="q12" value="B"> Live for the spotlight</label><br>
+        <label><input type="radio" name="q12" value="C"> Be kind and steady</label><br>
+        <label><input type="radio" name="q12" value="D"> Every detail matters</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 13 -->
+      <div class="question-step" data-step="12">
+        <p>13. How do you treat others at work?</p>
+        <label><input type="radio" name="q13" value="A"> Demanding but effective</label><br>
+        <label><input type="radio" name="q13" value="B"> Supportive and kind</label><br>
+        <label><input type="radio" name="q13" value="C"> Collaborative and calm</label><br>
+        <label><input type="radio" name="q13" value="D"> Confident and bold</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 14 -->
+      <div class="question-step" data-step="13">
+        <p>14. What would you do with sudden fame?</p>
+        <label><input type="radio" name="q14" value="A"> Stay humble and private</label><br>
+        <label><input type="radio" name="q14" value="B"> Use it to your advantage</label><br>
+        <label><input type="radio" name="q14" value="C"> Be overwhelmed but grateful</label><br>
+        <label><input type="radio" name="q14" value="D"> Deny it but secretly love it</label><br><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+ 
+      <!-- Question 15 -->
+      <div class="question-step" data-step="14">
+        <p>15. How would others describe you?</p>
+        <label><input type="radio" name="q15" value="A"> Kind and wise</label><br>
+        <label><input type="radio" name="q15" value="B"> Powerful and determined</label><br>
+        <label><input type="radio" name="q15" value="C"> Fun and unpredictable</label><br>
+        <label><input type="radio" name="q15" value="D"> Mysterious and thoughtful</label><br><br>
+        <button type="button" id="submit-btn">See Your Result</button>
+      </div>
+    </div>
+    <div id="certificate"></div>
+    <button id="download-btn" style="display:none;">Download Certificate</button>
+  </div>
+ 
+  <div id="scoreboard">
+    <h2>Current Points</h2>
+    <ul id="score-list"></ul>
+  </div>
+</div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ 
+<script>
+// Characters and scoring
+const characters = ["Todd","Barry","Hendricks","Milagro","Henri_Poisson","Melanie","Host","Charles","Sunrise","Minnie","Luka","Jeremiah","Gabrielle","Andrea","Natalia","Shani","Bailey","Eleanor","Jessica","Earl"];
+const characterScores = {};
+characters.forEach(c => characterScores[c] = 0);
+const answersByQuestion = {};
+ 
+// Descriptions
+const descriptions = {
+  Henri_Poisson: "Insightful and observant, you’re the mind everyone turns to.",
+  Todd: "You play your cards quietly — not everyone knows your motives.",
+  Luka: "Creative, expressive, and unafraid to be yourself.",
+  Barry: "You love control — and the spotlight.",
+  Hendricks: "Brilliant and self-assured, but not the easiest collaborator.",
+  Minnie: "Underestimated but full of potential.",
+  Gabrielle: "Dramatic and attention-grabbing — the show never ends.",
+  Andrea: "Tough on the outside, softer than you let on.",
+  Melanie: "Driven and competitive — success is your game.",
+  Sunrise: "Kind and insecure, but full of warmth.",
+  Natalia: "Fun, flirty, and full of energy.",
+  Eleanor: "Sweet on the surface, complex underneath.",
+  Shani: "Wild, unpredictable, and unforgettable.",
+  Bailey: "Ambitious and always promoting yourself.",
+  Jeremiah: "Creative and observant, quietly influencing others.",
+  Host: "Calm and strategic, often in the background.",
+  Milagro: "Passionate about your craft — intense but purposeful.",
+  Earl: "Sarcastic and cutting — humor is your armor.",
+  Jessica: "Kind and supportive, even when it’s hard.",
+  Charles: "Pure-hearted and loyal, even when hurt."
+};
+ 
+// full answer mapping
+const answerMapping = {
+  q1: { A:["Todd","Barry","Hendricks","Milagro"], B:["Henri_Poisson","Melanie"], C:["Sunrise","Minnie","Luka","Jeremiah"], D:["Gabrielle","Andrea","Natalia","Shani","Bailey"] },
+  q2: { A:["Melanie","Hendricks","Barry"], B:["Henri_Poisson","Luka","Eleanor"], C:["Sunrise","Andrea","Natalia","Jeremiah"], D:["Minnie","Todd","Bailey"] },
+  q3: { A:["Barry","Hendricks","Melanie","Natalia"], B:["Henri_Poisson","Todd","Milagro","Eleanor"], C:["Andrea","Jeremiah"], D:["Sunrise","Minnie","Luka","Bailey","Gabrielle"] },
+  q4: { A:["Barry","Hendricks","Todd","Melanie"], B:["Gabrielle","Natalia","Bailey","Shani"], C:["Sunrise","Luka","Eleanor"], D:["Henri_Poisson","Milagro","Andrea","Jeremiah"] },
+  q5: { A:["Todd","Melanie","Hendricks","Andrea"], B:["Sunrise","Luka","Eleanor"], C:["Barry","Natalia","Gabrielle","Shani"], D:["Henri_Poisson","Jeremiah","Milagro","Bailey"] },
+  q6: { A:["Todd","Barry","Hendricks","Shani"], B:["Henri_Poisson","Eleanor"], C:["Sunrise","Andrea","Bailey","Jeremiah"], D:["Gabrielle","Melanie","Milagro","Natalia","Luka","Minnie"] },
+  q7: { A:["Todd","Hendricks","Melanie","Milagro"], B:["Eleanor","Sunrise","Luka"], C:["Barry","Natalia","Shani","Gabrielle"], D:["Minnie","Andrea","Bailey","Jeremiah","Henri_Poisson"] },
+  q8: { A:["Henri_Poisson","Hendricks","Todd","Melanie"], B:["Milagro","Bailey","Andrea"], C:["Sunrise","Luka","Eleanor"], D:["Barry","Gabrielle","Natalia","Shani","Jeremiah"] },
+  q9: { A:["Henri_Poisson","Hendricks","Melanie","Milagro"], B:["Gabrielle","Natalia","Shani","Andrea","Jeremiah"], C:["Sunrise","Minnie","Luka","Eleanor"], D:["Barry","Todd","Bailey"] },
+  q10: { A:["Barry","Hendricks","Melanie","Gabrielle","Bailey"], B:["Minnie","Sunrise","Luka","Jeremiah","Natalia"], C:["Todd","Eleanor","Andrea"], D:["Henri_Poisson","Milagro","Shani"] },
+  q11: { A:["Barry","Gabrielle","Bailey","Shani","Natalia"], B:["Eleanor","Jeremiah","Luka"], C:["Hendricks","Melanie","Todd","Andrea"], D:["Henri_Poisson","Milagro","Sunrise","Minnie"] },
+  q12: { A:["Todd","Barry","Hendricks","Melanie"], B:["Gabrielle","Natalia","Luka","Shani","Bailey"], C:["Sunrise","Andrea","Jeremiah"], D:["Henri_Poisson","Milagro","Minnie"] },
+  q13: { A:["Barry","Hendricks","Melanie","Bailey","Gabrielle"], B:["Todd","Andrea","Minnie","Milagro","Jeremiah"], C:["Eleanor","Luka","Sunrise"], D:["Natalia","Shani","Henri_Poisson"] },
+  q14: { A:["Todd"], B:["Barry","Natalia","Shani","Gabrielle","Bailey"], C:["Sunrise","Luka","Minnie","Jeremiah","Andrea"], D:["Henri_Poisson","Hendricks","Melanie","Milagro"] },
+  q15: { A:["Sunrise","Jeremiah"], B:["Barry","Hendricks","Melanie","Todd"], C:["Gabrielle","Natalia","Bailey","Luka","Minnie"], D:["Henri_Poisson","Milagro","Andrea","Shani"] }
+};
+ 
+ 
+const steps = document.querySelectorAll(".question-step");
+let currentStep = 0;
+ 
+function showStep(index){
+  steps.forEach((s,i)=> s.style.display = (i===index ? "block":"none"));
+}
+ 
+function updateScoreForCurrentQuestion(){
+  const step = steps[currentStep];
+  const qName = step.querySelector("input[type='radio']").name;
+  const selected = step.querySelector(`input[name="${qName}"]:checked`);
+  if(!selected) return false;
+  const val = selected.value.toUpperCase();
+ 
+  if(answersByQuestion[qName]){
+    const prev = answerMapping[qName][answersByQuestion[qName]] || [];
+    prev.forEach(c=>{ if(characterScores[c]!==undefined) characterScores[c]--; });
+  }
+ 
+  (answerMapping[qName][val]||[]).forEach(c=>{ if(characterScores[c]!==undefined) characterScores[c]++; });
+  answersByQuestion[qName] = val;
+  updateScoreboard();
+  return true;
+}
+ 
+function updateScoreboard(){
+  const list = document.getElementById("score-list");
+  list.innerHTML = "";
+  characters.forEach(c=>{
+    const li = document.createElement("li");
+    li.textContent = `${c}: ${characterScores[c]}`;
+    list.appendChild(li);
+  });
+}
+ 
+document.addEventListener("DOMContentLoaded", ()=>{
+  showStep(currentStep);
+  updateScoreboard();
+ 
+  document.querySelectorAll(".next-btn").forEach((btn, idx)=>{
+    btn.addEventListener("click", ()=>{
+      if(!updateScoreForCurrentQuestion()){
+        alert("Select an answer");
+        return;
+      }
+      currentStep++;
+      if(currentStep < steps.length) showStep(currentStep);
+    });
+  });
+ 
+  const submitBtn = document.getElementById("submit-btn");
+  if(submitBtn){
+    submitBtn.addEventListener("click", ()=>{
+      if(!updateScoreForCurrentQuestion()){
+        alert("Select an answer");
+        return;
+      }
+      submitQuiz();
+    });
+  }
+});
+ 
+function submitQuiz(){
+  const top3 = Object.entries(characterScores).sort((a,b)=>b[1]-a[1]).slice(0,3);
+  const certificateDiv = document.getElementById("certificate");
+  certificateDiv.style.display = "block";
+  certificateDiv.innerHTML = `
+    <h2>Certificate of Character</h2>
+    <p>This certifies that you are:</p>
+    <h3>${top3.map(([name])=>name).join(", ")}</h3>
+    <p>Top score: ${top3[0][1]}</p>
+    ${top3.map(([name])=>`<p>${descriptions[name]}</p>`).join("")}
+  `;
+ 
+  const downloadBtn = document.getElementById("download-btn");
+downloadBtn.style.display = "inline-block";
+downloadBtn.onclick = () => {
+  html2canvas(certificateDiv, { scale: 2 }).then(canvas => {
+    const imgData = canvas.toDataURL('image/png');
+ 
+    // Create a PDF with the exact canvas size
+    const pdf = new jspdf.jsPDF({
+      orientation: 'landscape',
+      unit: 'px',
+      format: [canvas.width, canvas.height]
+    });
+ 
+    pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+    pdf.save('Character_Certificate.pdf');
+  });
+};
+ 
+ 
+  document.getElementById("quiz-form").style.display = "none";
+}
+</script>
+ 
+</body>
+</html>
+ 
+ 
