@@ -111,20 +111,20 @@
     100% { background-color: #ff00ff; }
   }
 
-  /* Glitter overlay */
-  #glitter {
-    pointer-events: none;
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    z-index: 9999;
-    display: block; /* Changed from none to block to show glitter overlay */
-    background-image: url('https://as2.ftcdn.net/v2/jpg/14/64/68/71/1000_F_1464687135_jzjpYoP3XQb9SZTxbu4txqIo5XrTQ6uq.jpg');
-    background-repeat: repeat;
-    opacity: 0.8;
-    animation: glitterMove 5s linear infinite;
+  /* Glitter overlay - hidden and behind content */
+#glitter {
+  pointer-events: none;
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  z-index: -1; /* behind all content */
+  display: none; /* hidden initially */
+  background-image: url('heart glitter.png');
+  background-repeat: repeat;
+  opacity: 0.6;
+  animation: glitterMove 5s linear infinite;
 }
 
   @keyframes glitterMove {
@@ -143,16 +143,16 @@
       <!-- Question steps go here (all 15 questions, same as your previous HTML) -->
       <div class="question-step" data-step="0" style="display:block;">
         <p>1. What motivates you most in life?</p>
-        <label><input type="radio" name="q1" value="A"> Solving complex problems</label><br>
-        <label><input type="radio" name="q1" value="B"> Being in control of everything</label><br>
-        <label><input type="radio" name="q1" value="C"> Finally being noticed</label><br>
-        <label><input type="radio" name="q1" value="D"> Becoming famous at all costs</label><br><br>
+        <label><input type="radio" name="q1" value="A"> Solving problems</label><br>
+        <label><input type="radio" name="q1" value="B"> Being in control</label><br>
+        <label><input type="radio" name="q1" value="C"> Being noticed</label><br>
+        <label><input type="radio" name="q1" value="D"> Becoming famous</label><br><br>
         <button type="button" class="next-btn">Next</button>
       </div>
       <!-- Question 2 -->
       <div class="question-step" data-step="1">
         <p>2. What’s your ideal outfit?</p>
-        <label><input type="radio" name="q2" value="A"> Something sharp and powerful</label><br>
+        <label><input type="radio" name="q2" value="A"> Professional and powerful</label><br>
         <label><input type="radio" name="q2" value="B"> Stylish and artistic</label><br>
         <label><input type="radio" name="q2" value="C"> Casual and effortless</label><br>
         <label><input type="radio" name="q2" value="D"> Relaxed and comfortable</label><br><br>
@@ -173,7 +173,7 @@
       <div class="question-step" data-step="3">
         <p>4. What’s your biggest insecurity?</p>
         <label><input type="radio" name="q4" value="A"> Losing control or power</label><br>
-        <label><input type="radio" name="q4" value="B"> Being forgotten</label><br>
+        <label><input type="radio" name="q4" value="B"> Being forgotten or ignored</label><br>
         <label><input type="radio" name="q4" value="C"> Not being understood</label><br>
         <label><input type="radio" name="q4" value="D"> Not being good enough</label><br><br>
         <button type="button" class="next-btn">Next</button>
@@ -212,17 +212,17 @@
       <!-- Question 8 -->
       <div class="question-step" data-step="7">
         <p>8. Choose your morning routine:</p>
-        <label><input type="radio" name="q8" value="A"> Planning your day in detail</label><br>
+        <label><input type="radio" name="q8" value="A"> Planning your day in detail before anything</label><br>
         <label><input type="radio" name="q8" value="B"> Practicing your art or passion</label><br>
-        <label><input type="radio" name="q8" value="C"> Taking time to relax</label><br>
-        <label><input type="radio" name="q8" value="D"> Pumping yourself up with music</label><br><br>
+        <label><input type="radio" name="q8" value="C"> Taking time to sleep in</label><br>
+        <label><input type="radio" name="q8" value="D"> Pumping yourself up with music while getting ready</label><br><br>
         <button type="button" class="next-btn">Next</button>
       </div>
  
       <!-- Question 9 -->
       <div class="question-step" data-step="8">
         <p>9. Pick your favorite social setting:</p>
-        <label><input type="radio" name="q9" value="A"> Private meeting or small group</label><br>
+        <label><input type="radio" name="q9" value="A"> Fun small group</label><br>
         <label><input type="radio" name="q9" value="B"> Big public event</label><br>
         <label><input type="radio" name="q9" value="C"> Quiet and calm space</label><br>
         <label><input type="radio" name="q9" value="D"> Party with friends</label><br><br>
@@ -242,20 +242,20 @@
       <!-- Question 11 -->
       <div class="question-step" data-step="10">
         <p>11. Pick a drink:</p>
-        <label><input type="radio" name="q11" value="A"> Something bold and flashy</label><br>
-        <label><input type="radio" name="q11" value="B"> Something refined and classic</label><br>
+        <label><input type="radio" name="q11" value="A"> Soda or energy drink</label><br>
+        <label><input type="radio" name="q11" value="B"> Robust tea</label><br>
         <label><input type="radio" name="q11" value="C"> Strong coffee or espresso</label><br>
-        <label><input type="radio" name="q11" value="D"> Smooth tea or juice</label><br><br>
+        <label><input type="radio" name="q11" value="D"> Juice</label><br><br>
         <button type="button" class="next-btn">Next</button>
       </div>
  
       <!-- Question 12 -->
       <div class="question-step" data-step="11">
         <p>12. What’s your life motto?</p>
-        <label><input type="radio" name="q12" value="A"> Control your destiny</label><br>
+        <label><input type="radio" name="q12" value="A"> You control your destiny</label><br>
         <label><input type="radio" name="q12" value="B"> Live for the spotlight</label><br>
-        <label><input type="radio" name="q12" value="C"> Be kind and steady</label><br>
-        <label><input type="radio" name="q12" value="D"> Every detail matters</label><br><br>
+        <label><input type="radio" name="q12" value="C"> Be kind</label><br>
+        <label><input type="radio" name="q12" value="D"> Put yourself first</label><br><br>
         <button type="button" class="next-btn">Next</button>
       </div>
  
@@ -284,7 +284,7 @@
         <p>15. How would others describe you?</p>
         <label><input type="radio" name="q15" value="A"> Kind and wise</label><br>
         <label><input type="radio" name="q15" value="B"> Powerful and determined</label><br>
-        <label><input type="radio" name="q15" value="C"> Fun and unpredictable</label><br>
+        <label><input type="radio" name="q15" value="C"> Fun and dramtic</label><br>
         <label><input type="radio" name="q15" value="D"> Mysterious and thoughtful</label><br><br>
         <button type="button" id="submit-btn">See Your Result</button>
       </div>
@@ -301,6 +301,7 @@
  
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<audio id="discoMusic" src="You Make Me Feel Mighty Real.mp3" preload="auto"></audio>
  
 <script>
 // Characters and scoring
@@ -314,19 +315,19 @@ const descriptions = {
   Henri: "Insightful and observant, you’re the mind everyone turns to.",
   Todd: "You play your cards quietly — not everyone knows your motives.",
   Luka: "Creative, expressive, and unafraid to be yourself.",
-  Barry: "You love control — and the spotlight.",
-  Hendricks: "Brilliant and self-assured, but not the easiest collaborator.",
+  Barry: "You love quality because you're scared of what people might think.",
+  Hendricks: "Brilliant with big ideas and a complicated past. ",
   Minnie: "Underestimated but full of potential.",
-  Gabrielle: "Dramatic and attention-grabbing — the show never ends.",
-  Andrea: "Tough on the outside, softer than you let on.",
+  Gabrielle: "America's sweetheart, but not sweet enough.",
+  Andrea: "Tough on the outside, but softer than you let on.",
   Melanie: "Driven and competitive — success is your game.",
   Sunrise: "Kind and insecure, but full of warmth.",
   Natalia: "Fun, flirty, and full of energy.",
   Eleanor: "Sweet on the surface, complex underneath.",
   Shani: "Wild, unpredictable, and unforgettable.",
   Bailey: "Ambitious and always promoting yourself.",
-  Jeremiah: "Creative and observant, quietly influencing others.",
-  Host: "Calm and strategic, often in the background.",
+  Jeremiah: "Superficial but charming",
+  Host: "Powerful strategicvoice, often in the background.",
   Milagro: "Passionate about your craft — intense but purposeful.",
   Earl: "Sarcastic and cutting — humor is your armor.",
   Jessica: "Kind and supportive, even when it’s hard.",
@@ -335,17 +336,17 @@ const descriptions = {
  
 // full answer mapping
 const answerMapping = {
-  q1: { A:["Todd","Barry","Hendricks","Milagro"], B:["Henri","Melanie"], C:["Sunrise","Minnie","Luka","Jeremiah"], D:["Gabrielle","Andrea","Natalia","Shani","Bailey"] },
-  q2: { A:["Melanie","Hendricks","Barry"], B:["Henri","Luka","Eleanor"], C:["Sunrise","Andrea","Natalia","Jeremiah"], D:["Minnie","Todd","Bailey"] },
-  q3: { A:["Barry","Hendricks","Melanie","Natalia"], B:["Henri","Todd","Milagro","Eleanor"], C:["Andrea","Jeremiah"], D:["Sunrise","Minnie","Luka","Bailey","Gabrielle"] },
-  q4: { A:["Barry","Hendricks","Todd","Melanie"], B:["Gabrielle","Natalia","Bailey","Shani"], C:["Sunrise","Luka","Eleanor"], D:["Henri","Milagro","Andrea","Jeremiah"] },
-  q5: { A:["Todd","Melanie","Hendricks","Andrea"], B:["Sunrise","Luka","Eleanor"], C:["Barry","Natalia","Gabrielle","Shani"], D:["Henri","Jeremiah","Milagro","Bailey"] },
-  q6: { A:["Todd","Barry","Hendricks","Shani"], B:["Henri","Eleanor"], C:["Sunrise","Andrea","Bailey","Jeremiah"], D:["Gabrielle","Melanie","Milagro","Natalia","Luka","Minnie"] },
-  q7: { A:["Todd","Hendricks","Melanie","Milagro"], B:["Eleanor","Sunrise","Luka"], C:["Barry","Natalia","Shani","Gabrielle"], D:["Minnie","Andrea","Bailey","Jeremiah","Henri"] },
-  q8: { A:["Henri","Hendricks","Todd","Melanie"], B:["Milagro","Bailey","Andrea"], C:["Sunrise","Luka","Eleanor"], D:["Barry","Gabrielle","Natalia","Shani","Jeremiah"] },
-  q9: { A:["Henri","Hendricks","Melanie","Milagro"], B:["Gabrielle","Natalia","Shani","Andrea","Jeremiah"], C:["Sunrise","Minnie","Luka","Eleanor"], D:["Barry","Todd","Bailey"] },
+  q1: { A:["Henri","Todd"], B:["Melanie","Barry","Hendricks","Milagro"], C:["Sunrise","Minnie","Luka","Andrea"], D:["Gabrielle","Natalia","Shani","Bailey","Jeremiah"] },
+  q2: { A:["Melanie","Hendricks","Barry"], B:["Luka","Eleanor","Bailey"], C:["Henri","Sunrise","Andrea","Natalia"], D:["Minnie","Todd","Jeremiah"] },
+  q3: { A:["Barry","Hendricks","Melanie",], B:["Henri"], C:["Jeremiah","Luka","Sunrise"], D:["Andrea","Minnie","Bailey","Gabrielle","Todd","Milagro","Eleanor"] },
+  q4: { A:["Barry","Todd","Melanie"], B:["Andrea","Gabrielle","Natalia","Bailey","Shani"], C:["Luka","Eleanor"], D:["Sunrise","Henri","Milagro","Jeremiah","Hendricks"] },
+  q5: { A:["Barry","Todd","Melanie","Andrea","Hendricks","Eleanor"], B:["Sunrise","Luka","Jeremiah"], C:["Natalia","Gabrielle","Shani","Bailey"], D:["Henri","Milagro"] },
+  q6: { A:["Todd","Shani","Eleanor"], B:["Henri","Melanie","Barry","Hendricks"], C:["Sunrise","Jeremiah","Luka"], D:["Gabrielle","Milagro","Natalia","Minnie","Andrea","Bailey"] },
+  q7: { A:["Henri","Todd","Hendricks","Melanie","Milagro"], B:["Minnie","Eleanor","Sunrise","Luka"], C:["Barry","Natalia","Shani","Gabrielle"], D:["Andrea","Bailey","Jeremiah"] },
+  q8: { A:["Henri","Hendricks","Todd","Melanie"], B:["Milagro","Bailey","Andrea"], C:["Sunrise","Luka","Eleanor","Jeremiah"], D:["Barry","Gabrielle","Natalia","Shani"] },
+  q9: { A:["Henri","Hendricks","Melanie"], B:["Gabrielle","Natalia","Shani","Andrea","Jeremiah"], C:["Sunrise","Minnie","Luka","Eleanor"], D:["Barry","Todd","Bailey","Milagro"] },
   q10: { A:["Barry","Hendricks","Melanie","Gabrielle","Bailey"], B:["Minnie","Sunrise","Luka","Jeremiah","Natalia"], C:["Todd","Eleanor","Andrea"], D:["Henri","Milagro","Shani"] },
-  q11: { A:["Barry","Gabrielle","Bailey","Shani","Natalia"], B:["Eleanor","Jeremiah","Luka"], C:["Hendricks","Melanie","Todd","Andrea"], D:["Henri","Milagro","Sunrise","Minnie"] },
+  q11: { A:["Barry","Gabrielle","Bailey","Shani","Natalia"], B:["Henri","Eleanor","Jeremiah","Luka"], C:["Hendricks","Melanie","Todd","Andrea"], D:["Milagro","Sunrise","Minnie"] },
   q12: { A:["Todd","Barry","Hendricks","Melanie"], B:["Gabrielle","Natalia","Luka","Shani","Bailey"], C:["Sunrise","Andrea","Jeremiah"], D:["Henri","Milagro","Minnie"] },
   q13: { A:["Barry","Hendricks","Melanie","Bailey","Gabrielle"], B:["Todd","Andrea","Minnie","Milagro","Jeremiah"], C:["Eleanor","Luka","Sunrise"], D:["Natalia","Shani","Henri"] },
   q14: { A:["Todd"], B:["Barry","Natalia","Shani","Gabrielle","Bailey"], C:["Sunrise","Luka","Minnie","Jeremiah","Andrea"], D:["Henri","Hendricks","Melanie","Milagro"] },
@@ -453,15 +454,18 @@ function submitQuiz(){
   document.body.classList.add('disco-flash');
   document.getElementById('glitter').style.display = 'block';
 
-  const discoMusic = document.getElementById('discoMusic');
-  discoMusic.play().catch(e => console.log('Music playback prevented:', e));
-  // ==== DISCO PARTY MODE ACTIVATION END ====
+ const discoMusic = document.getElementById('discoMusic');
+ discoMusic.play().catch(e => console.log('Music playback prevented:', e));
+ // ==== DISCO PARTY MODE ACTIVATION END ====
+
 
   // Show restart button
   document.getElementById('restart-btn').style.display = 'inline-block';
 }
 
 </script>
+
+<div id="glitter"></div>
  
 </body>
 </html>
